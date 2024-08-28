@@ -1,7 +1,7 @@
 # yii2-enveditor
 
-[![Latest Version](https://img.shields.io/github/tag/geoffry304/yii2-enveditor.svg?style=flat-square&label=release)](https://github.com/geoffry304/yii2-enveditor/tags)
-[![Total Downloads](https://img.shields.io/packagist/dt/geoffry304/yii2-enveditor.svg?style=flat-square)](https://packagist.org/packages/geoffry304/yii2-enveditor)
+[![Latest Version](https://img.shields.io/github/tag/sguinfocom/yii2-enveditor.svg?style=flat-square&label=release)](https://github.com/sguinfocom/yii2-enveditor/tags)
+[![Total Downloads](https://img.shields.io/packagist/dt/sguinfocom/yii2-enveditor.svg?style=flat-square)](https://packagist.org/packages/sguinfocom/yii2-enveditor)
 
 ## Module and component to edit env file ##
 
@@ -9,13 +9,13 @@
 
 The preferred way to install **yii2-enveditor** is through [Composer](https://getcomposer.org/). Either add the following to the require section of your `composer.json` file:
 
-`"geoffry304/yii2-enveditor": "*"` 
+`"sguinfocom/yii2-enveditor": "*"` 
 
 Or run:
 
-`$ php composer.phar require geoffry304/yii2-enveditor "*"` 
+`$ php composer.phar require sguinfocom/yii2-enveditor "*"` 
 
-You can manually install **yii2-enveditor** by [downloading the source in ZIP-format](https://github.com/geoffry304/yii2-enveditor/archive/master.zip).
+You can manually install **yii2-enveditor** by [downloading the source in ZIP-format](https://github.com/sguinfocom/yii2-enveditor/archive/master.zip).
 
 
 Update the config file
@@ -24,14 +24,14 @@ Update the config file
 return [
 'components' => [
         'env' => [
-            'class' => '\geoffry304\enveditor\components\EnvComponent',
+            'class' => '\sguinfocom\enveditor\components\EnvComponent',
             'autoBackup' => true,
             'backupPath' => "backups",
         ],
     ],
     'modules' => [
         'enveditor' => [
-            'class' => '\geoffry304\enveditor\Module',
+            'class' => '\sguinfocom\enveditor\Module',
             'allowedIds' => "1,2,3"
         ],
     ],

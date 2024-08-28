@@ -1,4 +1,4 @@
-<?php namespace geoffry304\enveditor\interfaces;
+<?php namespace sguinfocom\enveditor\interfaces;
 
 interface DotenvReader
 {

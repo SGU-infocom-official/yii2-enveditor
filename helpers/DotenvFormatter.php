@@ -1,7 +1,7 @@
-<?php namespace geoffry304\enveditor\helpers;
+<?php namespace sguinfocom\enveditor\helpers;
 
-use geoffry304\enveditor\interfaces\DotenvFormatter as DotenvFormatterInterface;
-use geoffry304\enveditor\exceptions\InvalidValueException;
+use sguinfocom\enveditor\interfaces\DotenvFormatter as DotenvFormatterInterface;
+use sguinfocom\enveditor\exceptions\InvalidValueException;
 
 
 class DotenvFormatter implements DotenvFormatterInterface

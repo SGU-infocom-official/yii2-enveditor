@@ -1,8 +1,8 @@
-<?php namespace geoffry304\enveditor\helpers;
+<?php namespace sguinfocom\enveditor\helpers;
 
-use geoffry304\enveditor\interfaces\DotenvFormatter as DotenvFormatterInterface;
-use geoffry304\enveditor\interfaces\DotenvWriter as DotenvWriterInterface;
-use geoffry304\enveditor\exceptions\UnableWriteToFileException;
+use sguinfocom\enveditor\interfaces\DotenvFormatter as DotenvFormatterInterface;
+use sguinfocom\enveditor\interfaces\DotenvWriter as DotenvWriterInterface;
+use sguinfocom\enveditor\exceptions\UnableWriteToFileException;
 
 /**
  * The DotenvWriter writer.

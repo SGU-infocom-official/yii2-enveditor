@@ -123,7 +123,7 @@
       <find>app\modules\enveditor\</find>
     </findStrings>
     <replaceStrings>
-      <replace>geoffry304\yii2-enveditor\</replace>
+      <replace>sguinfocom\yii2-enveditor\</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\g.vandeneede\Documents\Github\yii2-enveditor</dir>

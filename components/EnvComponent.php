@@ -1,14 +1,14 @@
 <?php
 
-namespace geoffry304\enveditor\components;
+namespace sguinfocom\enveditor\components;
 
 
-use geoffry304\enveditor\helpers\DotenvFormatter;
-use geoffry304\enveditor\helpers\DotenvReader;
-use geoffry304\enveditor\helpers\DotenvWriter;
-use geoffry304\enveditor\exceptions\FileNotFoundException;
-use geoffry304\enveditor\exceptions\KeyNotFoundException;
-use geoffry304\enveditor\exceptions\NoBackupAvailableException;
+use sguinfocom\enveditor\helpers\DotenvFormatter;
+use sguinfocom\enveditor\helpers\DotenvReader;
+use sguinfocom\enveditor\helpers\DotenvWriter;
+use sguinfocom\enveditor\exceptions\FileNotFoundException;
+use sguinfocom\enveditor\exceptions\KeyNotFoundException;
+use sguinfocom\enveditor\exceptions\NoBackupAvailableException;
 use Yii;
 use yii\base\Component;
 use yii\web\NotFoundHttpException;

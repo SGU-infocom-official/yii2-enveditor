@@ -1,8 +1,8 @@
 <?php
 
-namespace geoffry304\enveditor\controllers;
+namespace sguinfocom\enveditor\controllers;
 
-use geoffry304\enveditor\components\EnvComponent;
+use sguinfocom\enveditor\components\EnvComponent;
 use Yii;
 use yii\base\DynamicModel;
 use yii\data\ArrayDataProvider;

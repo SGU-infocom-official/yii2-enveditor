@@ -1,6 +1,6 @@
 <?php
 
-namespace geoffry304\enveditor;
+namespace sguinfocom\enveditor;
 
 use Yii;
 use yii\web\NotFoundHttpException;
@@ -10,7 +10,7 @@ use yii\web\NotFoundHttpException;
  */
 class Module extends \yii\base\Module{
 
-    public $controllerNamespace = 'geoffry304\enveditor\controllers';
+    public $controllerNamespace = 'sguinfocom\enveditor\controllers';
 
     public $allowedIds = null;
 

@@ -1,4 +1,4 @@
-<?php namespace geoffry304\enveditor\exceptions;
+<?php namespace sguinfocom\enveditor\exceptions;
 
 use Exception;
 

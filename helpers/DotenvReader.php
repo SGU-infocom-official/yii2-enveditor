@@ -1,8 +1,8 @@
-<?php namespace geoffry304\enveditor\helpers;
+<?php namespace sguinfocom\enveditor\helpers;
 
-use geoffry304\enveditor\interfaces\DotenvFormatter as DotenvFormatterInterface;
-use geoffry304\enveditor\interfaces\DotenvReader as DotenvReaderInterface;
-use geoffry304\enveditor\exceptions\UnableReadFileException;
+use sguinfocom\enveditor\interfaces\DotenvFormatter as DotenvFormatterInterface;
+use sguinfocom\enveditor\interfaces\DotenvReader as DotenvReaderInterface;
+use sguinfocom\enveditor\exceptions\UnableReadFileException;
 
 /**
  * The DotenvReader class.
