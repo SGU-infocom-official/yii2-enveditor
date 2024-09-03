@@ -29,7 +29,7 @@ class DotenvFormatter implements DotenvFormatterInterface
 
     public function formatSetterLine($key, $value = null, $comment = null, $export = false)
     {
-        $forceQuotes = (strlen($comment) > 0 && strlen(trim($value)) == 0);
+        $forceQuotes = (strlen($comment ?? '') > 0 && strlen(trim($value)) == 0);
         $value = $this->formatValue($value, $forceQuotes);
         $key = $this->formatKey($key);
         $comment = $this->formatComment($comment);
