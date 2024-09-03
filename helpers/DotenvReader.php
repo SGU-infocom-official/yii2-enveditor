@@ -24,6 +24,7 @@ class DotenvReader implements DotenvReaderInterface
     }
 
 
+    #[\Override]
     public function load($filePath)
     {
         $this->filePath = $filePath;
@@ -39,6 +40,7 @@ class DotenvReader implements DotenvReaderInterface
     }
 
 
+    #[\Override]
     public function content()
     {
         $this->ensureFileIsReadable();
@@ -47,6 +49,7 @@ class DotenvReader implements DotenvReaderInterface
     }
 
 
+    #[\Override]
     public function lines()
     {
         $content = [];
@@ -66,6 +69,7 @@ class DotenvReader implements DotenvReaderInterface
     }
 
 
+    #[\Override]
     public function keys()
     {
         $content = [];

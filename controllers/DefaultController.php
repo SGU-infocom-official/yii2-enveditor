@@ -15,6 +15,7 @@ class DefaultController extends Controller
 {
     public $model;
 
+    #[\Override]
     public function init()
     {
         $this->model = new DynamicModel(['name', 'value', 'comment', 'isNewRecord']);
@@ -25,6 +26,7 @@ class DefaultController extends Controller
     /**
      * @inheritdoc
      */
+    #[\Override]
     public function behaviors()
     {
         return [
@@ -63,7 +65,7 @@ class DefaultController extends Controller
         $backups = Yii::$app->env->getBackups();
         $backupdata = [];
         foreach ($backups as $backup) {
-            if (str_contains($backup['filename'], EnvComponent::BACKUP_FILENAME_PREFIX)) {
+            if (str_contains((string) $backup['filename'], EnvComponent::BACKUP_FILENAME_PREFIX)) {
                 $backupdata[] = $backup;
             }
         }
