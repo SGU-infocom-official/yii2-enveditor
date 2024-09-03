@@ -27,12 +27,13 @@ class DotenvWriter implements DotenvWriterInterface
 
     protected function ensureFileIsWritable($filePath)
     {
-        if ((is_file($filePath) && !is_writable($filePath)) || (!is_file($filePath) && !is_writable(dirname($filePath)))) {
+        if ((is_file((string) $filePath) && !is_writable((string) $filePath)) || (!is_file((string) $filePath) && !is_writable(dirname((string) $filePath)))) {
             throw new UnableWriteToFileException(sprintf('Unable to write to the file at %s.', $filePath));
         }
     }
 
 
+    #[\Override]
     public function setBuffer($content)
     {
         $this->buffer = $content;
@@ -40,6 +41,7 @@ class DotenvWriter implements DotenvWriterInterface
     }
 
 
+    #[\Override]
     public function getBuffer()
     {
         return $this->buffer;
@@ -53,18 +55,21 @@ class DotenvWriter implements DotenvWriterInterface
     }
 
 
+    #[\Override]
     public function appendEmptyLine()
     {
         return $this->appendLine();
     }
 
 
+    #[\Override]
     public function appendCommentLine($comment)
     {
         return $this->appendLine('# ' . $comment);
     }
 
 
+    #[\Override]
     public function appendSetter($key, $value = null, $comment = null, $export = false)
     {
         $line = $this->formatter->formatSetterLine($key, $value, $comment, $export);
@@ -73,6 +78,7 @@ class DotenvWriter implements DotenvWriterInterface
     }
 
 
+    #[\Override]
     public function updateSetter($key, $value = null, $comment = null, $export = false)
     {
         $pattern = "/^(export\h)?\h*{$key}=.*/m";
@@ -83,15 +89,17 @@ class DotenvWriter implements DotenvWriterInterface
     }
 
 
+    #[\Override]
     public function deleteSetter($key)
     {
         $pattern = "/^(export\h)?\h*{$key}=.*\n/m";
-        $this->buffer = preg_replace($pattern, null, $this->buffer);
+        $this->buffer = preg_replace($pattern, '', $this->buffer);
 
         return $this;
     }
 
 
+    #[\Override]
     public function save($filePath)
     {
         $this->ensureFileIsWritable($filePath);

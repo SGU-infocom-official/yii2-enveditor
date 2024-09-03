@@ -53,6 +53,7 @@ class EnvComponent extends Component
     protected $writer;
 
 
+    #[\Override]
     public function init()
     {
         parent::init();
@@ -364,7 +365,7 @@ class EnvComponent extends Component
      */
     public function getBackups()
     {
-        $backups = array_diff(scandir($this->backupPath), array('..', '.'));
+        $backups = array_diff(scandir($this->backupPath), ['..', '.']);
         $output = [];
 
         foreach ($backups as $backup) {
@@ -401,7 +402,7 @@ class EnvComponent extends Component
 
         $latestBackup = 0;
         foreach ($backups as $backup) {
-            $timestamp = strtotime($backup['created_at']);
+            $timestamp = strtotime((string) $backup['created_at']);
             if ($timestamp > $latestBackup) {
                 $latestBackup = $timestamp;
             }

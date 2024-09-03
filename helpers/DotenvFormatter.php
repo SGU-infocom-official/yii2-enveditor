@@ -7,12 +7,14 @@ use sguinfocom\enveditor\exceptions\InvalidValueException;
 class DotenvFormatter implements DotenvFormatterInterface
 {
 
+    #[\Override]
     public function formatKey($key)
     {
-        return trim(str_replace(array('export ', '\'', '"', ' '), '', $key));
+        return trim(str_replace(['export ', '\'', '"', ' '], '', $key));
     }
 
 
+    #[\Override]
     public function formatValue($value, $forceQuotes = false)
     {
         if (!$forceQuotes && !preg_match('/[#\s"\'\\\\]|\\\\n/', $value)) {
@@ -27,9 +29,10 @@ class DotenvFormatter implements DotenvFormatterInterface
     }
 
 
+    #[\Override]
     public function formatSetterLine($key, $value = null, $comment = null, $export = false)
     {
-        $forceQuotes = (strlen($comment) > 0 && strlen(trim($value)) == 0);
+        $forceQuotes = (strlen((string) $comment) > 0 && strlen(trim((string) $value)) == 0);
         $value = $this->formatValue($value, $forceQuotes);
         $key = $this->formatKey($key);
         $comment = $this->formatComment($comment);
@@ -41,6 +44,7 @@ class DotenvFormatter implements DotenvFormatterInterface
     }
 
 
+    #[\Override]
     public function formatComment($comment)
     {
         $comment = trim($comment, '# ');
@@ -49,12 +53,14 @@ class DotenvFormatter implements DotenvFormatterInterface
     }
 
 
+    #[\Override]
     public function normaliseKey($key)
     {
         return $this->formatKey($key);
     }
 
 
+    #[\Override]
     public function normaliseValue($value, $quote = '')
     {
         if (strlen($quote) == 0) {
@@ -67,12 +73,14 @@ class DotenvFormatter implements DotenvFormatterInterface
     }
 
 
+    #[\Override]
     public function normaliseComment($comment)
     {
         return trim($comment, '# ');
     }
 
 
+    #[\Override]
     public function parseLine($line)
     {
         $output = [
@@ -89,7 +97,7 @@ class DotenvFormatter implements DotenvFormatterInterface
             $output['type'] = 'comment';
             $output['comment'] = $this->normaliseComment($line);
         } elseif ($this->looksLikeSetter($line)) {
-            list($key, $data) = array_map('trim', explode('=', $line, 2));
+            [$key, $data] = array_map('trim', explode('=', $line, 2));
             $export = $this->isExportKey($key);
             $key = $this->normaliseKey($key);
             $data = trim($data);
@@ -128,7 +136,7 @@ class DotenvFormatter implements DotenvFormatterInterface
                     $comment = (isset($parts[1])) ? $this->normaliseComment($parts[1]) : '';
 
                     // Unquoted values cannot contain whitespace
-                    if (preg_match('/\s+/', $value) > 0) {
+                    if (preg_match('/\s+/', (string) $value) > 0) {
                         throw new InvalidValueException('Dotenv values containing spaces must be surrounded by quotes.');
                     }
                 }
@@ -149,26 +157,26 @@ class DotenvFormatter implements DotenvFormatterInterface
 
     protected function isEmpty($line)
     {
-        return strlen(trim($line)) == 0;
+        return strlen(trim((string) $line)) == 0;
     }
 
 
     protected function isComment($line)
     {
-        return strpos(ltrim($line), '#') === 0;
+        return strpos(ltrim((string) $line), '#') === 0;
     }
 
 
     protected function looksLikeSetter($line)
     {
-        return strpos($line, '=') !== false && strpos($line, '=') !== 0;
+        return strpos((string) $line, '=') !== false && strpos((string) $line, '=') !== 0;
     }
 
 
     protected function isExportKey($key)
     {
         $pattern = '/^export\h.*$/';
-        if (preg_match($pattern, trim($key))) {
+        if (preg_match($pattern, trim((string) $key))) {
             return true;
         }
         return false;
@@ -177,6 +185,6 @@ class DotenvFormatter implements DotenvFormatterInterface
 
     protected function beginsWithAQuote($data)
     {
-        return strpbrk($data[0], '"\'') !== false;
+        return strpbrk((string) $data[0], '"\'') !== false;
     }
 }
