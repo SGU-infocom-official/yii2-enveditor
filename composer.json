@@ -21,7 +21,6 @@
     "minimum-stability": "dev",
     "require": {
 		"yiisoft/yii2": "~2.0.51",
-        "yidas/yii2-bower-asset": "*",
 		"vlucas/phpdotenv": "^5.0",
         "kartik-v/yii2-grid": "^3.2.6",
 		"templesuite/yii2-ajaxcrud": "dev-master"
@@ -29,14 +28,6 @@
     "autoload": {
         "psr-4": {
             "sguinfocom\\enveditor\\": ""
-        }
-    },
-    "require-dev": {
-        "rector/rector": "dev-main"
-    },
-    "config": {
-        "allow-plugins": {
-            "yiisoft/yii2-composer": true
         }
     }
 }
