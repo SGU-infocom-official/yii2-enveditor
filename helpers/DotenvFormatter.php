@@ -10,7 +10,7 @@ class DotenvFormatter implements DotenvFormatterInterface
     #[\Override]
     public function formatKey($key)
     {
-        return trim(str_replace(['export ', '\'', '"', ' '], '', $key));
+        return trim((string) str_replace(['export ', '\'', '"', ' '], '', $key));
     }
 
 
@@ -47,9 +47,9 @@ class DotenvFormatter implements DotenvFormatterInterface
     #[\Override]
     public function formatComment($comment)
     {
-        $comment = trim($comment, '# ');
+        $comment = trim((string) $comment, '# ');
 
-        return (strlen($comment) > 0) ? " # {$comment}" : "";
+        return (strlen((string) $comment) > 0) ? " # {$comment}" : "";
     }
 
 
@@ -64,7 +64,7 @@ class DotenvFormatter implements DotenvFormatterInterface
     public function normaliseValue($value, $quote = '')
     {
         if (strlen($quote) == 0) {
-            return trim($value);
+            return trim((string) $value);
         }
 
         $value = str_replace("\\$quote", $quote, $value);
@@ -76,7 +76,7 @@ class DotenvFormatter implements DotenvFormatterInterface
     #[\Override]
     public function normaliseComment($comment)
     {
-        return trim($comment, '# ');
+        return trim((string) $comment, '# ');
     }
 
 
